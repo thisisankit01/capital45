@@ -39,7 +39,7 @@ export default function Section1() {
             <div className="flex justify-center">
                 <Header className="absolute top-0 pt-6 w-[90%]" classNameLogo={`${hovered ? 'opacity-0' : ''}`} />
             </div>
-            <div className="absolute bottom-28 z-50 pr-24">
+            <div className="absolute bottom-28 z-50 pr-24 max-[481px]:justify-center max-[481px]:h-2/4 max-[481px]:items-center">
             <motion.h1
   className="mx-16 h-full flex text-4xl font-medium text-white"
   initial={{ y: 100, opacity: 0 }}
