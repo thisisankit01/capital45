@@ -2,32 +2,115 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+/* * {
+  background-image: url('https://capital45.com/wp-content/uploads/2020/05/Capital45-home-xl-2-aspect-ratio-1920-1080-1600x900.jpg');
+} */
+
+
+.background-2 {
+  background-image: url("https://capital45.com/wp-content/uploads/2020/05/Capital-45-Home-2-2-aspect-ratio-1920-1080-2800x1575.jpg");
+  background-size: cover;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes pan {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20%);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.background-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+} */
+
+.background-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 130%;
+  z-index: -1;
+  height: 120%;
+  background: url('https://capital45.com/wp-content/uploads/2020/05/Capital45-home-xl-2-aspect-ratio-1920-1080-1600x900.jpg') no-repeat center center;
+  background-size: cover;
+  transform: scale(1.2);
+  animation: pan 10s infinite alternate linear;
+  animation-duration: 15s;
+}
+
+.animate-slide-down {
+  animation: slide-down 1.5s forwards;
+}
+
+.animate-slide-right {
+  animation: slide-right 1.5s forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 1.5s forwards;
+}
+
+.animate-slide-left {
+  animation: slide-left 1.5s forwards;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
