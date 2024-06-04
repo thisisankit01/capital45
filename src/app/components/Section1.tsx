@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 export default function Section1() {
     const sections = ["#section-1", "#section-2", "#section-3", "#section-4"];
     const { hovered, setHovered } = useContext(HoverContext);
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 1020);
+    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 1020 : false);
 
     useEffect(() => {
         const handleResize = () => {
